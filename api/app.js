@@ -32,21 +32,7 @@ const generateId = () => {
 
 // МАРШРУТЫ
 
-// 1. ГЛАВНАЯ СТРАНИЦА
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Добро пожаловать в API товаров!',
-    endpoints: {
-      getAllProducts: 'GET /products',
-      getProductById: 'GET /products/:id',
-      createProduct: 'POST /products',
-      updateProduct: 'PATCH /products/:id',
-      deleteProduct: 'DELETE /products/:id'
-    }
-  });
-});
-
-// 2. ПОЛУЧЕНИЕ ВСЕХ ТОВАРОВ
+// 1. ПОЛУЧЕНИЕ ВСЕХ ТОВАРОВ
 app.get('/products', (req, res) => {
   res.json({
     success: true,
@@ -164,7 +150,6 @@ app.delete('/products/:id', (req, res) => {
 app.listen(port, () => {
   console.log(`Сервер запущен на http://localhost:${port}`);
   console.log(`Доступные эндпоинты:`);
-  console.log(`   GET  /             - Главная страница`);
   console.log(`   GET  /products     - Все товары (${products.length} шт.)`);
   console.log(`   GET  /products/:id - Товар по ID`);
   console.log(`   POST /products     - Создать товар`);
